@@ -1,0 +1,15 @@
+/* 공유용 (/share/die/ 와 docs/코링텍_핫스탬핑공정_3D.html): 금형 3D 의 외형 애니메이션과 회전만. 단추는 외형·회전 둘뿐.
+   3d.css, 3d-die.css 뒤에 붙는다. 틀: templates/share_die.html, 파일 판: tools/share_file.py */
+* { box-sizing: border-box; }
+html, body { margin: 0; background: #fff; }
+body { font-family: "Pretendard KR", "Pretendard", -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif; font-size: 16px; line-height: 1.5; color: #333; }
+main { max-width: 1280px; margin: 0 auto; }
+h1 { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+figure, p { margin: 0; }
+.view3d { border-top: 0; }
+.view3d-ctrl { justify-content: center; gap: 0; padding: 12px 0; }
+.view3d-ctrl [data-view] { justify-content: center; width: 120px; height: 46px; padding: 0; font-size: 17px; }
+.view3d-ctrl [data-view] + [data-view] { margin-left: -1px; }
+.seq-hint { font-size: 13px; }
+.seq:not(.is-on) .view3d-ctrl { display: none; }
+@media (orientation: landscape) and (max-height: 520px) { main { max-width: calc((100vh - 70px) * 16 / 9); } }

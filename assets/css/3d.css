@@ -1,0 +1,33 @@
+/* 그림 구역 공통 (figure.view3d): 금형 공정 연속 그림(3d-die.css), 차체 부위 그림(3d-biw.css).
+   빌드가 use3d: die | biw 인 쪽에만 붙인다. 스크립트가 켜지면 figure 에 is-on 이 붙는다. */
+.view3d { margin-left: 0; margin-right: 0; border-top: 2px solid var(--navy, #072969); }
+.view3d figcaption { margin-top: 8px; font-size: 13px; color: var(--sub, #666); }
+.view3d + .steps { margin-top: 16px; }
+.view3d button { font: inherit; color: inherit; cursor: pointer; }
+.view3d button:focus-visible { outline: 2px solid var(--navy, #072969); outline-offset: 1px; position: relative; }
+
+/* 부위 목록 (글자로 늘 보인다. 스크립트가 켜지면 항목이 버튼이 된다) */
+.view3d-zones { display: grid; grid-template-columns: 1fr 1fr; column-gap: 24px; margin: 0; padding: 0; list-style: none; border-bottom: 1px solid var(--line, #d0d0d0); }
+.view3d-zones li { margin: 0; border-top: 1px solid var(--line-soft, #e4e4e4); }
+.view3d-zones li:nth-child(-n+2) { border-top: 0; }
+.view3d-zones button, .view3d-zones li[data-zone]:not(:has(button)) {
+  display: grid; grid-template-columns: 28px 1fr; column-gap: 10px; align-items: start; width: 100%; padding: 10px 8px;
+  text-align: left; background: transparent; box-sizing: border-box;
+}
+.view3d-zones button { border: 0; border-left: 3px solid transparent; }
+.view3d-zones li[data-zone]:not(:has(button)) { padding-left: 11px; }
+.view3d-zones i {
+  grid-row: 1 / span 2; width: 24px; height: 24px; margin-top: 1px; border-radius: 50%;
+  font-family: var(--display); font-style: normal; font-size: 12px; font-weight: 700; line-height: 24px; text-align: center; color: #fff; background: var(--navy, #072969);
+}
+.view3d-zones b { font-size: 15px; font-weight: 600; line-height: 1.5; color: #1f1f1f; }
+.view3d-zones span { font-size: 14px; line-height: 1.5; color: var(--sub, #666); word-break: keep-all; }
+.view3d-zones button:hover { background: #f3f5f8; }
+.view3d-zones button[aria-pressed="true"] { background: #f3f5f8; border-left-color: var(--navy, #072969); }
+.view3d-zones button[aria-pressed="true"] b { color: var(--navy, #072969); }
+.view3d-zones button[aria-pressed="true"] i { background: #b8161e; }
+
+@media (max-width: 719px) {
+  .view3d-zones { grid-template-columns: 1fr; }
+  .view3d-zones li:nth-child(2) { border-top: 1px solid var(--line-soft, #e4e4e4); }
+}

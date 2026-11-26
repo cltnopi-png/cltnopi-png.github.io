@@ -1,0 +1,50 @@
+/* 차체 골격(BIW) 부위 그림. 마크업: content/pages/s2_1.*.html 의 figure.view3d.biw, 스크립트: js/biw.js
+   그림 층: base.webp(바탕) 위에 z1~z7.webp(부위별 색, 투명 배경). 층은 tools/biw_layers.py 가 만든다. */
+.biw-stage { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #e7e9ed; }
+.biw-stage img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: block; -webkit-user-select: none; user-select: none; }
+.biw-z { pointer-events: none; transition: opacity .3s; }
+.biw[data-sel] .biw-z { opacity: 0; }
+.biw[data-sel="1"] .biw-z[data-z="1"], .biw[data-sel="2"] .biw-z[data-z="2"], .biw[data-sel="3"] .biw-z[data-z="3"], .biw[data-sel="4"] .biw-z[data-z="4"],
+.biw[data-sel="5"] .biw-z[data-z="5"], .biw[data-sel="6"] .biw-z[data-z="6"], .biw[data-sel="7"] .biw-z[data-z="7"] { opacity: 1; }
+
+/* 번호 표지 */
+.view3d .biw-pin {
+  position: absolute; width: 26px; height: 26px; margin: -13px 0 0 -13px; padding: 0; border-radius: 50%; border: 2px solid #fff; box-sizing: border-box;
+  font-family: var(--display); font-size: 12px; font-weight: 700; line-height: 22px; text-align: center; color: #fff; background: var(--navy, #072969);
+  box-shadow: 0 1px 4px rgba(10, 20, 40, .28); cursor: default; transition: opacity .25s, transform .2s;
+}
+/* 표지 위치(그림 폭·높이에 대한 %). 그림을 바꾸면 여기를 고친다 */
+.biw-pin[data-z="1"] { left: 40.8%; top: 46%; }
+.biw-pin[data-z="2"] { left: 33.5%; top: 25.2%; }
+.biw-pin[data-z="3"] { left: 59.2%; top: 70%; }
+.biw-pin[data-z="4"] { left: 50.5%; top: 75.5%; }
+.biw-pin[data-z="5"] { left: 71.5%; top: 65.5%; }
+.biw-pin[data-z="6"] { left: 52.2%; top: 61.5%; }
+.biw-pin[data-z="7"] { left: 34.6%; top: 46.5%; }
+.biw-pin::after { content: ""; position: absolute; inset: -10px; border-radius: 50%; }
+.biw.is-on .biw-pin { cursor: pointer; }
+.biw[data-sel] .biw-pin { opacity: .3; }
+.biw[data-sel="1"] .biw-pin[data-z="1"], .biw[data-sel="2"] .biw-pin[data-z="2"], .biw[data-sel="3"] .biw-pin[data-z="3"], .biw[data-sel="4"] .biw-pin[data-z="4"],
+.biw[data-sel="5"] .biw-pin[data-z="5"], .biw[data-sel="6"] .biw-pin[data-z="6"], .biw[data-sel="7"] .biw-pin[data-z="7"] { opacity: 1; transform: scale(1.2); }
+
+/* 범례 */
+.biw-legend { position: absolute; left: 14px; bottom: 12px; display: flex; gap: 16px; margin: 0; font-size: 12px; line-height: 18px; color: #3d434c; pointer-events: none; }
+.biw-legend span { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+.biw-legend span::before { content: ""; flex: none; width: 18px; height: 8px; }
+.biw-legend .is-hot::before { background: #b8161e; }
+.biw-legend .is-rest::before { background: #b9bec6; }
+
+/* 무대 아래 한 줄: 선택한 부위 + 전체 보기 */
+.biw-bar { display: flex; align-items: center; gap: 12px; min-height: 52px; border-bottom: 1px solid var(--line, #d0d0d0); }
+.view3d .biw-status { flex: 1; max-width: none; margin: 0; font-size: 14px; line-height: 1.5; color: #1f1f1f; word-break: keep-all; }
+.view3d .biw-all { flex: none; margin-left: auto; height: 32px; padding: 0 12px; font-size: 13px; color: #333; background: #fff; border: 1px solid var(--line, #d0d0d0); }
+.biw-all:hover { border-color: var(--navy, #072969); }
+.biw-all[hidden] { display: block; visibility: hidden; }
+
+@media (max-width: 719px) {
+  .view3d .biw-pin { width: 20px; height: 20px; margin: -10px 0 0 -10px; font-size: 10px; line-height: 16px; border-width: 2px; }
+  .biw-legend { left: 8px; bottom: 6px; gap: 10px; font-size: 11px; }
+  .biw-status { font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) { .biw-z, .biw-pin { transition: none; } }
+@media print { .biw-bar, .biw-pin { display: none !important; } }

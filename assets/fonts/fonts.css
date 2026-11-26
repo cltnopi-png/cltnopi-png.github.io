@@ -1,0 +1,11 @@
+/* 글꼴. 빌드가 ba07e25b 를 글꼴 파일의 해시로 바꾼다(build.py). 글꼴 파일은 tools/fonts.py 로 만든다.
+   Pretendard KR: 한글·영문 본문(가변 굵기, 한 파일). Montserrat: 슬로건·큰 숫자. 둘 다 SIL OFL.
+   CLT Fallback: 글꼴이 오기 전에 잠깐 쓰는 시스템 글꼴. 폭을 맞춰 두어 바뀔 때 글자와 그림이 움직이지 않게 한다. */
+@font-face{font-family:"Pretendard KR";font-weight:45 920;font-style:normal;font-display:swap;src:url(pretendard-kr.woff2?v=ba07e25b) format("woff2")}
+@font-face{font-family:"Montserrat";font-weight:300;font-style:normal;font-display:swap;src:url(montserrat/montserrat-300.woff2?v=ba07e25b) format("woff2")}
+@font-face{font-family:"Montserrat";font-weight:500;font-style:normal;font-display:swap;src:url(montserrat/montserrat-500.woff2?v=ba07e25b) format("woff2")}
+@font-face{font-family:"Montserrat";font-weight:700;font-style:normal;font-display:swap;src:url(montserrat/montserrat-700.woff2?v=ba07e25b) format("woff2")}
+@font-face{font-family:"CLT Fallback";src:local("Arial"),local("Helvetica Neue"),local("Helvetica");size-adjust:99%;unicode-range:U+0000-024F,U+2000-206F,U+20A0-20CF,U+2100-214F,U+2190-21FF}
+@font-face{font-family:"CLT Fallback";src:local("Malgun Gothic"),local("맑은 고딕"),local("Apple SD Gothic Neo"),local("Noto Sans KR");size-adjust:85.5%;unicode-range:U+1100-11FF,U+3000-303F,U+3130-318F,U+3200-32FF,U+AC00-D7A3,U+FF00-FFEF}
+@font-face{font-family:"CLT Fallback Display";font-weight:100 600;src:local("Arial"),local("Helvetica Neue"),local("Helvetica");size-adjust:108%;unicode-range:U+0000-024F,U+2000-206F}
+@font-face{font-family:"CLT Fallback Display";font-weight:700 900;src:local("Arial Bold"),local("Arial-BoldMT"),local("Helvetica Neue Bold"),local("Helvetica-Bold");size-adjust:109%;unicode-range:U+0000-024F,U+2000-206F}
